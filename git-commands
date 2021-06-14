@@ -1,0 +1,70 @@
+git init
+
+git config --global user.name "Polarapu Prasad"
+git config --global user.email "devopstraining2015@gmail.com"
+
+git config --list
+
+
+-------------------
+touch file1
+ls
+git status
+git add file1
+git status
+git commit -m "sample commit" file1
+git status
+git log
+git show cid
+
+------------------------------
+touch file2 file3 file4 file5
+ls
+git status
+git add file2 file3 file4 file5
+or
+git add *
+or
+git add .
+or
+git add -A
+git status
+git commit -m "label"
+git log
+git show cid
+--------------------------------------
+
+cat > file1
+...msg....
+ctrl+d
+
+or
+open a file --> add some data and save
+
+
+git status
+git add file1
+git status
+git commit -m "label" file1
+git status
+git log
+git show cid
+ 
+-----------------------------------
+git reset --soft cid (local to staging)
+git reset head file (staging to workspace)
+git reset --mixed cid (local to workspace)
+git reset --hard cid (delete all info)
+
+
+git clone https://github.com/polarapu/batch68.git
+ls
+cd batch68
+touch file1
+git status
+git add file1
+git status
+git commit -m "label" file1
+git status
+git log
+git show cid
