@@ -1,0 +1,29 @@
+public static void takeFullPageScreenShot(WebDriver driver) throws IOException {
+
+    JavascriptExecutor jsExec = (JavascriptExecutor)driver;
+
+    jsExec.executeScript("window.scrollTo(0, 0);"); //Scroll To Top
+
+    Long innerHeight = (Long) jsExec.executeScript("return window.innerHeight;");
+    Long scroll = innerHeight;
+
+    Long scrollHeight = (Long) jsExec.executeScript("return document.body.scrollHeight;"); 
+
+    scrollHeight = scrollHeight + scroll;
+
+    do{
+
+        File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+
+        //Unique File Name For Each Screenshot
+        File destination = new File("E://screenshots//"+String.join("_", 
+        LocalDateTime.now().toString().split("[^A-Za-z0-9]"))+".jpg");
+
+        FileUtils.copyFile(screenshot, destination));
+
+        jsExec.executeScript("window.scrollTo(0, "+innerHeight+");");
+
+        innerHeight = innerHeight + scroll;
+
+    }while(scrollHeight >= innerHeight);
+}
